@@ -392,12 +392,16 @@ void cgc_editUser(contact *ptr) {
 			return;
 		}
 
+		data[31] = 0;
+
 		if(data[0] != 0) {
 			cgc_memset(ptr->first, 0, 32);
 			cgc_memcpy(ptr->first, data, cgc_strlen(data));
 		}
 		cgc_put("New last name: ");
 		cgc_recvUntil(data, 32, '\n');
+
+		data[31] = 0;
 
 		if(data[0] && cgc_validateName(data) == 0) {
 			cgc_puts("Not a legal last name.  Stopping edit.");
@@ -409,6 +413,8 @@ void cgc_editUser(contact *ptr) {
 		}
 		cgc_put("New phone number: ");
 		cgc_recvUntil(data, 14, '\n');
+
+		data[13] = 0;
 
 		if(data[0] && cgc_validatePhone(data) == 0) {
 			cgc_puts("Not a legal phone number.  Stopping edit.");
