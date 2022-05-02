@@ -1,4 +1,4 @@
-path: "/usr/local/share/polls/yolodex/poller/for-release"
+path: "/usr/local/share/polls/yolodex/poller/for-testing"
 generator: 
   script: "python2 -B /usr/local/share/pyshared/cgc/generate-polls/generate-polls"
   path: "/usr/local/share/polls/yolodex/poller/"
